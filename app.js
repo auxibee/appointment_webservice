@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+require('express-async-errors');
 const { noRouteHandler, errorHandler } = require('./server/errors/errorHandler');
 const allRoutes = require('./server/routes');
 
