@@ -11,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      UserAppointment.belongsTo(models.User, { foreignKey: 'userId', as: 'client' });
+      UserAppointment.belongsTo(models.AppointmentDate, { foreignKey: 'appointmentDateId' });
+      UserAppointment.hasMany(models.AppointmentDetail, { as: 'details' });
     }
   }
   UserAppointment.init({
     userId: DataTypes.INTEGER,
     appointmentDateId: DataTypes.INTEGER,
-    status: DataTypes.ENUM,
+
   }, {
     sequelize,
     modelName: 'UserAppointment',

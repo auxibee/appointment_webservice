@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class AppointmentDate extends Model {
     /**
@@ -11,12 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      AppointmentDate.hasMany(models.UserAppointment, { as: 'appointments' });
     }
   }
   AppointmentDate.init({
     appointmentDate: DataTypes.DATE,
-    status: DataTypes.ENUM,
-    slots: DataTypes.INTEGER
+    status: DataTypes.ENUM('open', 'closed'),
+    slots: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'AppointmentDate',
