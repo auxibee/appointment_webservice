@@ -1,0 +1,22 @@
+GET http://localhost:8080/users
+
+###
+POST http://localhost:8080/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "mashalisking@gmail.com",
+    "password": "ontario123"
+}
+
+###
+POST http://localhost:8080/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "email": "mashalisking@gmail.com",
+    "password": "ontario123"
+}
+
+###
+GET http://localhost:8080/account/appointment
