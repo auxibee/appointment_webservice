@@ -4,7 +4,9 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class AppointmentDetail extends Model {
-
+    static associate(models) {
+      // AppointmentDetail.hasOne(models.UserAppointment, { foreignKey: 'appointmentId' });
+    }
   }
   AppointmentDetail.init({
     appointmentId: DataTypes.INTEGER,
